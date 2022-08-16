@@ -137,6 +137,7 @@ describe("FFLeagueMart", () => {
       const ownerAddress = await nftMarket.ownerOf(tokenID);
       expect(ownerAddress).to.equal(signers[1].address);
       // NFTTransfer event has the correct arguments
+    //   console.log(receipt.events[2].args)
       const args = receipt.events[2].args;
       expect(args.tokenID).to.equal(tokenID);
       expect(args.from).to.equal(nftMarket.address);

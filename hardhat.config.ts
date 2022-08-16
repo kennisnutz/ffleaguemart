@@ -27,6 +27,10 @@ const config: HardhatUserConfig = {
     //   accounts: [OWNER_PRIVATE_KEY],
     // },
   },
+  etherscan: {
+    
+    apiKey: process.env.REACT_APP_ETHERSCAN_API_KEY,
+  }
 };
 
 export default config;
