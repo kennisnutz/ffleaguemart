@@ -1,11 +1,13 @@
-import { BigNumber, Contract } from "ethers";
+import { BigNumber, Contract, ethers } from "ethers";
 import { CreationValues } from "modules/CreationPage/CreationForm";
 import useSingner from "state/signer";
 import NFT_MARKET from  '../../../artifacts/contracts/FFLeagueMart.sol/FFLeagueMart.json'
 import useOwnedListedNFTs from "./useOwnedListedNFTs";
 import useOwnedNFTs from "./useOwnedNFTs";
+import useListedNFTs from "./useListedNFTs";
 import { NFT_MARKET_ADDRESS} from './config';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
+import { NFT } from "./interfaces";
 
 // export const NFT_MARKET_ADDRESS= process.env.NEXT_PUBLIC_NFT_MARKET_ADDRESS as string;
 
@@ -15,6 +17,7 @@ const useNFTMarket=()=>{
 
     const ownedNFTs= useOwnedNFTs();
     const ownedListedNFTs= useOwnedListedNFTs();
+    const listedNFTs= useListedNFTs();
 
     const createNFT=async (values: CreationValues)=>{
        try{
@@ -48,8 +51,14 @@ const useNFTMarket=()=>{
             
         );
     }
+    const buyNFT= async (nft: NFT)=>{
+        const transaction: TransactionResponse= await nftMarket.buyNFT(
+            nft.id,
+            {value: ethers.utils.parseEther(nft.price)}            
+        );
+    }
 
-    return {createNFT,listNFT, cancelListing, ...ownedNFTs, ...ownedListedNFTs}
+    return {createNFT,listNFT, cancelListing, buyNFT, ...ownedNFTs, ...ownedListedNFTs, ...listedNFTs}
 };
 
 export default useNFTMarket;
