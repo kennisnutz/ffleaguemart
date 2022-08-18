@@ -8,27 +8,27 @@ This repo contains code for a simple nft market trading application consisting o
 
 3./ A frontend User interface for sending transactions to the blockchain and displaying indexed data for the subgraph server.
 
-## Technologies
+# Technologies
 
-# Languages
+## Languages
 1./ solidity
 2./ typescript
 3./html
 
-# Frame Works
+### Frame Works
 
 1./ Hardhat
 2./ React
 3./ Next.js
 
 
-## Live Demo [Link]:[https://fantasyfootballnftmart.web.app/]
+#### Live Demo [Link]:[https://fantasyfootballnftmart.web.app/]
 
-## User GUide
+# User GUide
 
-# For Live Demo test
+## For Live Demo test
 
-# Creating NFT
+### Creating NFT
 -- set up metamask wallet to Rinkeby testnet
 -- Get some free test net ether from [Rinkeby Faucet]:[https://rinkebyfaucet.com/]
 -- visit [Link]:[https://fantasyfootballnftmart.web.app/]
@@ -37,7 +37,7 @@ This repo contains code for a simple nft market trading application consisting o
 -- submit and confirm the transaction 
 -- view in owned tab
 
-# Listing Created NFT
+### Listing Created NFT
 -- set up metamask wallet to Rinkeby testnet
 -- Get some free test net ether from [Rinkeby Faucet]:[https://rinkebyfaucet.com/]
 -- visit [Link]:[https://fantasyfootballnftmart.web.app/]
@@ -48,7 +48,7 @@ This repo contains code for a simple nft market trading application consisting o
 
  
 
-# Buying Listed NFT
+### Buying Listed NFT
 -- set up metamask wallet to Rinkeby testnet
 -- Get some free test net ether from [Rinkeby Faucet]:[https://rinkebyfaucet.com/]
 -- visit [Link]:[https://fantasyfootballnftmart.web.app/]
