@@ -5,6 +5,7 @@ import NFT_MARKET from  '../../../artifacts/contracts/FFLeagueMart.sol/FFLeagueM
 import useOwnedListedNFTs from "./useOwnedListedNFTs";
 import useOwnedNFTs from "./useOwnedNFTs";
 import { NFT_MARKET_ADDRESS} from './config';
+import { TransactionResponse } from "@ethersproject/abstract-provider";
 
 // export const NFT_MARKET_ADDRESS= process.env.NEXT_PUBLIC_NFT_MARKET_ADDRESS as string;
 
@@ -41,8 +42,14 @@ const useNFTMarket=()=>{
             price
         );
     }
+    const cancelListing= async (tokenID:string)=>{
+        const transaction: TransactionResponse= await nftMarket.cancelListing(
+            tokenID,
+            
+        );
+    }
 
-    return {createNFT,listNFT, ...ownedNFTs, ...ownedListedNFTs}
+    return {createNFT,listNFT, cancelListing, ...ownedNFTs, ...ownedListedNFTs}
 };
 
 export default useNFTMarket;

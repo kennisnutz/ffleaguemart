@@ -14,7 +14,7 @@ const OwnedPage = () => {
       }
       </div>
       {
-        ownedListedNFTs && (
+        ownedListedNFTs && ownedListedNFTs.length > 0 && (
           <>
            <div className="mu-4 mt-4 mb-6 relative h-[1px] w-full flex-shrink-0 bg-black">
            <div className="absolute right-1/2 bottom-1/2 translate-y-1/2 transform bg-white px-2 fornt-mono font-semibold">
