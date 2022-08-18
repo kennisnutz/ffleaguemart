@@ -1,17 +1,20 @@
-import { Contract } from "ethers";
+import { BigNumber, Contract } from "ethers";
 import { CreationValues } from "modules/CreationPage/CreationForm";
 import useSingner from "state/signer";
 import NFT_MARKET from  '../../../artifacts/contracts/FFLeagueMart.sol/FFLeagueMart.json'
+import useOwnedListedNFTs from "./useOwnedListedNFTs";
 import useOwnedNFTs from "./useOwnedNFTs";
+import { NFT_MARKET_ADDRESS} from './config';
 
-
-const NFT_MARKET_ADDRESS= process.env.NEXT_PUBLIC_NFT_MARKET_ADDRESS as string;
+// export const NFT_MARKET_ADDRESS= process.env.NEXT_PUBLIC_NFT_MARKET_ADDRESS as string;
 
 const useNFTMarket=()=>{
     const {signer}= useSingner();
     const nftMarket= new Contract(NFT_MARKET_ADDRESS,NFT_MARKET.abi, signer);
 
     const ownedNFTs= useOwnedNFTs();
+    const ownedListedNFTs= useOwnedListedNFTs();
+
     const createNFT=async (values: CreationValues)=>{
        try{
             const data= new FormData();
@@ -32,7 +35,14 @@ const useNFTMarket=()=>{
        }
     };
 
-    return {createNFT, ownedNFTs}
+    const listNFT= async (tokenID:string, price: BigNumber)=>{
+        const transaction: TransactionResponse= await nftMarket.listNFT(
+            tokenID,
+            price
+        );
+    }
+
+    return {createNFT,listNFT, ...ownedNFTs, ...ownedListedNFTs}
 };
 
 export default useNFTMarket;

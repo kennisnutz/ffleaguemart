@@ -4,10 +4,10 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: GetOwnedNFTs
+// GraphQL query operation: GetOwnedListedNFTs
 // ====================================================
 
-export interface GetOwnedNFTs_nfts {
+export interface GetOwnedListedNFTs_nfts {
   __typename: "NFT";
   id: string;
   from: any;
@@ -16,10 +16,10 @@ export interface GetOwnedNFTs_nfts {
   price: any;
 }
 
-export interface GetOwnedNFTs {
-  nfts: GetOwnedNFTs_nfts[];
+export interface GetOwnedListedNFTs {
+  nfts: GetOwnedListedNFTs_nfts[];
 }
 
-export interface GetOwnedNFTsVariables {
+export interface GetOwnedListedNFTsVariables {
   owner?: string | null;
 }
